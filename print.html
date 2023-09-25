@@ -9,7 +9,6 @@
 
         <!-- Custom HTML head -->
         
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -34,14 +33,15 @@
 
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -57,7 +57,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -69,12 +69,14 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -82,16 +84,38 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">@lnp2pBot</a></li><li class="chapter-item expanded "><a href="faq.html"><strong aria-hidden="true">1.</strong> FAQ</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="what-is-lnp2pbot.html"><strong aria-hidden="true">1.1.</strong> O que é o lnp2pBot?</a></li><li class="chapter-item expanded "><a href="what-is-lightning-network.html"><strong aria-hidden="true">1.2.</strong> O que é a Lightning Network?</a></li><li class="chapter-item expanded "><a href="what-do-i-need-to-use-lnp2pbot.html"><strong aria-hidden="true">1.3.</strong> O que preciso para usar o @lnp2pBot?</a></li><li class="chapter-item expanded "><a href="how-do-i-initialize-the-bot.html"><strong aria-hidden="true">1.4.</strong> Como inicializo o bot?</a></li><li class="chapter-item expanded "><a href="what-are-the-channels-to-make-exchanges-on-telegram.html"><strong aria-hidden="true">1.5.</strong> Quais são os canais para realizar trocas no telegram?</a></li><li class="chapter-item expanded "><a href="where-i-can-find-offers-for-my-local-currency.html"><strong aria-hidden="true">1.6.</strong> Onde posso encontrar ofertas na minha moeda local?</a></li><li class="chapter-item expanded "><a href="do-i-need-to-fill-out-any-user-registration-or-identity-verification.html"><strong aria-hidden="true">1.7.</strong> Preciso preencher algum registro de usuário ou verificação de identidade?</a></li><li class="chapter-item expanded "><a href="what-type-of-information-do-you-collect-from-each-user.html"><strong aria-hidden="true">1.8.</strong> Que tipo de informação é coletada de cada usuário?</a></li><li class="chapter-item expanded "><a href="how-does-the-user-reputation-system-work.html"><strong aria-hidden="true">1.9.</strong> Como funciona o sistema de reputação do usuário?</a></li><li class="chapter-item expanded "><a href="how-do-i-create-a-sell-order.html"><strong aria-hidden="true">1.10.</strong> Como crio uma ordem de venda?</a></li><li class="chapter-item expanded "><a href="how-do-i-create-a-buy-order.html"><strong aria-hidden="true">1.11.</strong> Como crio uma ordem de compra?</a></li><li class="chapter-item expanded "><a href="how-do-i-find-and-accept-an-offer-to-buy-or-sell.html"><strong aria-hidden="true">1.12.</strong> Como encontro e aceito uma oferta de compra ou venda?</a></li><li class="chapter-item expanded "><a href="how-do-i-cancel-a-posted-order.html"><strong aria-hidden="true">1.13.</strong> Como cancelo uma ordem publicada?</a></li><li class="chapter-item expanded "><a href="is-there-a-limit-on-the-amounts-i-can-trade.html"><strong aria-hidden="true">1.14.</strong> Existem limites mínimos ou máximos nas quantidades que posso negociar?</a></li><li class="chapter-item expanded "><a href="how-long-does-it-take-to-finalize-a-transaction.html"><strong aria-hidden="true">1.15.</strong> Quanto tempo leva para finalizar uma transação?</a></li><li class="chapter-item expanded "><a href="fees-and-commissions.html"><strong aria-hidden="true">1.16.</strong> Quais taxas e comissões devo pagar?</a></li><li class="chapter-item expanded "><a href="what-exchange-rate-does-the-bot-use.html"><strong aria-hidden="true">1.17.</strong> Qual taxa de câmbio o bot utiliza?</a></li><li class="chapter-item expanded "><a href="in-which-countries-is-it-available.html"><strong aria-hidden="true">1.18.</strong> Em quais países está disponível?</a></li><li class="chapter-item expanded "><a href="community-find.html"><strong aria-hidden="true">1.19.</strong> Como posso encontrar comunidades que trabalham com minha moeda?</a></li><li class="chapter-item expanded "><a href="How-do-i-buy-in-a-community.html"><strong aria-hidden="true">1.20.</strong> Como compro em uma determinada comunidade?</a></li><li class="chapter-item expanded "><a href="recommended-wallets.html"><strong aria-hidden="true">1.21.</strong> Carteiras recomendadas</a></li><li class="chapter-item expanded "><a href="common-problems-and-solutions.html"><strong aria-hidden="true">1.22.</strong> Problemas comuns e soluções</a></li><li class="chapter-item expanded "><a href="how-do-i-know-if-seller-released.html"><strong aria-hidden="true">1.23.</strong> Como faço para saber se o vendedor realmente liberou os sats?</a></li><li class="chapter-item expanded "><a href="support.html"><strong aria-hidden="true">1.24.</strong> Suporte</a></li><li class="chapter-item expanded "><a href="contact-with-developers.html"><strong aria-hidden="true">1.25.</strong> Contato com os desenvolvedores</a></li><li class="chapter-item expanded "><a href="i-am-a-developer-and-i-want-to-contribute.html"><strong aria-hidden="true">1.26.</strong> Sou desenvolvedor e quero contribuir</a></li></ol></li><li class="chapter-item expanded "><a href="communities.html"><strong aria-hidden="true">2.</strong> Comunidades</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="trust.html"><strong aria-hidden="true">2.1.</strong> Confiança</a></li><li class="chapter-item expanded "><a href="benevolent-dictator.html"><strong aria-hidden="true">2.2.</strong> Ditador Benevolente</a></li><li class="chapter-item expanded "><a href="how-do-i-create-a-community.html"><strong aria-hidden="true">2.3.</strong> Como criar uma comunidade?</a></li><li class="chapter-item expanded "><a href="communities-first-steps.html"><strong aria-hidden="true">2.4.</strong> Mãos à obra. Primeiros passos com comunidades</a></li><li class="chapter-item expanded "><a href="modifying-a-community.html"><strong aria-hidden="true">2.5.</strong> Modificando uma comunidade</a></li><li class="chapter-item expanded "><a href="creating-orders.html"><strong aria-hidden="true">2.6.</strong> Criando ordens</a></li><li class="chapter-item expanded "><a href="incentives.html"><strong aria-hidden="true">2.7.</strong> Incentivos</a></li><li class="chapter-item expanded "><a href="managing-a-community.html"><strong aria-hidden="true">2.8.</strong> Gerenciando uma comunidade</a></li><li class="chapter-item expanded "><a href="what-is-a-solver.html"><strong aria-hidden="true">2.9.</strong> O que é um Solver</a></li><li class="chapter-item expanded "><a href="resolving-disputes.html"><strong aria-hidden="true">2.10.</strong> Resolvendo disputas</a></li><li class="chapter-item expanded "><a href="settle-order.html"><strong aria-hidden="true">2.11.</strong> Completando uma ordem</a></li><li class="chapter-item expanded "><a href="cancel-order.html"><strong aria-hidden="true">2.12.</strong> Cancelando uma ordem</a></li><li class="chapter-item expanded "><a href="removing-disputes.html"><strong aria-hidden="true">2.13.</strong> Removendo disputas</a></li><li class="chapter-item expanded "><a href="ban-user-community.html"><strong aria-hidden="true">2.14.</strong> Banindo um usuário da comunidade</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">@lnp2pBot</a></li><li class="chapter-item expanded "><a href="faq.html"><strong aria-hidden="true">1.</strong> FAQ</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="what-is-lnp2pbot.html"><strong aria-hidden="true">1.1.</strong> O que é o lnp2pBot?</a></li><li class="chapter-item expanded "><a href="what-is-lightning-network.html"><strong aria-hidden="true">1.2.</strong> O que é a Lightning Network?</a></li><li class="chapter-item expanded "><a href="what-do-i-need-to-use-lnp2pbot.html"><strong aria-hidden="true">1.3.</strong> O que preciso para usar o @lnp2pBot?</a></li><li class="chapter-item expanded "><a href="how-do-i-initialize-the-bot.html"><strong aria-hidden="true">1.4.</strong> Como inicializo o bot?</a></li><li class="chapter-item expanded "><a href="what-are-the-channels-to-make-exchanges-on-telegram.html"><strong aria-hidden="true">1.5.</strong> Quais são os canais para realizar trocas no telegram?</a></li><li class="chapter-item expanded "><a href="where-i-can-find-offers-for-my-local-currency.html"><strong aria-hidden="true">1.6.</strong> Onde posso encontrar ofertas na minha moeda local?</a></li><li class="chapter-item expanded "><a href="do-i-need-to-fill-out-any-user-registration-or-identity-verification.html"><strong aria-hidden="true">1.7.</strong> Preciso preencher algum registro de usuário ou verificação de identidade?</a></li><li class="chapter-item expanded "><a href="what-type-of-information-do-you-collect-from-each-user.html"><strong aria-hidden="true">1.8.</strong> Que tipo de informação é coletada de cada usuário?</a></li><li class="chapter-item expanded "><a href="how-does-the-user-reputation-system-work.html"><strong aria-hidden="true">1.9.</strong> Como funciona o sistema de reputação do usuário?</a></li><li class="chapter-item expanded "><a href="how-do-i-create-a-sell-order.html"><strong aria-hidden="true">1.10.</strong> Como crio uma ordem de venda?</a></li><li class="chapter-item expanded "><a href="how-do-i-create-a-buy-order.html"><strong aria-hidden="true">1.11.</strong> Como crio uma ordem de compra?</a></li><li class="chapter-item expanded "><a href="how-do-i-find-and-accept-an-offer-to-buy-or-sell.html"><strong aria-hidden="true">1.12.</strong> Como encontro e aceito uma oferta de compra ou venda?</a></li><li class="chapter-item expanded "><a href="how-do-i-cancel-a-posted-order.html"><strong aria-hidden="true">1.13.</strong> Como cancelo uma ordem publicada?</a></li><li class="chapter-item expanded "><a href="is-there-a-limit-on-the-amounts-i-can-trade.html"><strong aria-hidden="true">1.14.</strong> Existem limites mínimos ou máximos nas quantidades que posso negociar?</a></li><li class="chapter-item expanded "><a href="how-long-does-it-take-to-finalize-a-transaction.html"><strong aria-hidden="true">1.15.</strong> Quanto tempo leva para finalizar uma transação?</a></li><li class="chapter-item expanded "><a href="fees-and-commissions.html"><strong aria-hidden="true">1.16.</strong> Quais taxas e comissões devo pagar?</a></li><li class="chapter-item expanded "><a href="what-exchange-rate-does-the-bot-use.html"><strong aria-hidden="true">1.17.</strong> Qual taxa de câmbio o bot utiliza?</a></li><li class="chapter-item expanded "><a href="in-which-countries-is-it-available.html"><strong aria-hidden="true">1.18.</strong> Em quais países está disponível?</a></li><li class="chapter-item expanded "><a href="community-find.html"><strong aria-hidden="true">1.19.</strong> Como posso encontrar comunidades que trabalham com minha moeda?</a></li><li class="chapter-item expanded "><a href="How-do-i-buy-in-a-community.html"><strong aria-hidden="true">1.20.</strong> Como compro em uma determinada comunidade?</a></li><li class="chapter-item expanded "><a href="recommended-wallets.html"><strong aria-hidden="true">1.21.</strong> Carteiras recomendadas</a></li><li class="chapter-item expanded "><a href="common-problems-and-solutions.html"><strong aria-hidden="true">1.22.</strong> Problemas comuns e soluções</a></li><li class="chapter-item expanded "><a href="how-do-i-know-if-seller-released.html"><strong aria-hidden="true">1.23.</strong> Como faço para saber se o vendedor realmente liberou os sats?</a></li><li class="chapter-item expanded "><a href="i-cant-receive.html"><strong aria-hidden="true">1.24.</strong> Não pude receber os sats pela minha compra</a></li><li class="chapter-item expanded "><a href="support.html"><strong aria-hidden="true">1.25.</strong> Suporte</a></li><li class="chapter-item expanded "><a href="contact-with-developers.html"><strong aria-hidden="true">1.26.</strong> Contato com os desenvolvedores</a></li><li class="chapter-item expanded "><a href="i-am-a-developer-and-i-want-to-contribute.html"><strong aria-hidden="true">1.27.</strong> Sou desenvolvedor e quero contribuir</a></li></ol></li><li class="chapter-item expanded "><a href="communities.html"><strong aria-hidden="true">2.</strong> Comunidades</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="trust.html"><strong aria-hidden="true">2.1.</strong> Confiança</a></li><li class="chapter-item expanded "><a href="benevolent-dictator.html"><strong aria-hidden="true">2.2.</strong> Ditador Benevolente</a></li><li class="chapter-item expanded "><a href="how-do-i-create-a-community.html"><strong aria-hidden="true">2.3.</strong> Como criar uma comunidade?</a></li><li class="chapter-item expanded "><a href="communities-first-steps.html"><strong aria-hidden="true">2.4.</strong> Mãos à obra. Primeiros passos com comunidades</a></li><li class="chapter-item expanded "><a href="modifying-a-community.html"><strong aria-hidden="true">2.5.</strong> Modificando uma comunidade</a></li><li class="chapter-item expanded "><a href="creating-orders.html"><strong aria-hidden="true">2.6.</strong> Criando ordens</a></li><li class="chapter-item expanded "><a href="incentives.html"><strong aria-hidden="true">2.7.</strong> Incentivos</a></li><li class="chapter-item expanded "><a href="managing-a-community.html"><strong aria-hidden="true">2.8.</strong> Gerenciando uma comunidade</a></li><li class="chapter-item expanded "><a href="what-is-a-solver.html"><strong aria-hidden="true">2.9.</strong> O que é um Solver</a></li><li class="chapter-item expanded "><a href="resolving-disputes.html"><strong aria-hidden="true">2.10.</strong> Resolvendo disputas</a></li><li class="chapter-item expanded "><a href="settle-order.html"><strong aria-hidden="true">2.11.</strong> Completando uma ordem</a></li><li class="chapter-item expanded "><a href="cancel-order.html"><strong aria-hidden="true">2.12.</strong> Cancelando uma ordem</a></li><li class="chapter-item expanded "><a href="removing-disputes.html"><strong aria-hidden="true">2.13.</strong> Removendo disputas</a></li><li class="chapter-item expanded "><a href="ban-user-community.html"><strong aria-hidden="true">2.14.</strong> Banindo um usuário da comunidade</a></li><li class="chapter-item expanded "><a href="safe-trades-on-lnp2pbot.html"><strong aria-hidden="true">2.15.</strong> Trocas seguras no @lnp2pbot</a></li><li class="chapter-item expanded "><a href="scam-attempts.html"><strong aria-hidden="true">2.16.</strong> Tentativas de golpes</a></li><li class="chapter-item expanded "><a href="tips-to-avoid-scams.html"><strong aria-hidden="true">2.17.</strong> Dicas para evitar golpes</a></li><li class="chapter-item expanded "><a href="account-triangulation-scams.html"><strong aria-hidden="true">2.18.</strong> Golpes de triangulação de contas ou golpes de ponte</a></li><li class="chapter-item expanded "><a href="prevention-of-account-triangulation-scams.html"><strong aria-hidden="true">2.19.</strong> Prevençã0 de golpes de ponte</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
@@ -100,7 +124,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -133,7 +157,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -171,7 +195,7 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="faq-perguntas-frequentes"><a class="header" href="#faq-perguntas-frequentes">FAQ (Perguntas Frequentes)</a></h1>
 <p>Aqui respondemos às perguntas frequentes feitas pelos nossos usuários.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="o-que-é-lnp2pbot"><a class="header" href="#o-que-é-lnp2pbot">O que é @lnp2pBot?</a></h1>
-<p><strong>Lnp2pBot</strong> é um sistema de troca de bitcoins por moeda local que permite transações peer-to-peer de forma fácil e segura usando a Lightning Network. É um bot do Telegram que pode ser usado de forma pseudônima, sem registro de usuário ou verificação de identidade. É uma ferramenta &quot;sem custódia&quot;, o que significa que não armazena os satoshis (a menor unidade de bitcoin) durante a troca. <strong>Lnp2pBot</strong> é um aplicativo de código aberto, que pode ser replicado, modificado e redistribuído com liberdade. <a href="https://t.me/lnp2pbot"><strong>Ir para @lnp2pBot</strong></a></p>
+<p><strong>Lnp2pBot</strong> é um sistema de troca de Bitcoin por moeda local, que permite realizar transações entre pessoas de forma fácil e segura utilizando a Lightning Network. É um bot do Telegram que pode ser usado de forma pseudônima, sem registro de usuário ou verificação de identidade. É uma ferramenta que guarda apenas os satoshis (a menor unidade de Bitcoin) pelo tempo mínimo necessário, proporcionando maior segurança aos seus usuários em comparação com serviços de troca que têm carteiras internas e custódia total dos fundos. <strong>Lnp2pBot</strong> é um aplicativo de código aberto, portanto, pode ser auditado, replicado, modificado e redistribuído livremente. <a href="https://t.me/lnp2pbot"><strong>Ir para @lnp2pBot</strong></a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="o-que-é-a-lightning-network"><a class="header" href="#o-que-é-a-lightning-network">O que é a Lightning Network?</a></h1>
 <p>A <a href="https://youtu.be/59fdMXXUhTQ?t=421">Lightning Network</a> é uma rede de canais de pagamento que funciona como um protocolo de segunda camada sobre a rede Bitcoin, aproveitando a capacidade de escrever contratos inteligentes em sua blockchain. É uma solução de escalabilidade que permite aumentar exponencialmente o número de transações e a velocidade delas sem precisar de confirmações na blockchain principal. Isso, por sua vez, permite reduzir drasticamente as taxas de rede. Os pagamentos tornam-se instantâneos e com custo quase zero.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="o-que-eu-preciso-para-usar-lnp2pbot"><a class="header" href="#o-que-eu-preciso-para-usar-lnp2pbot">O que eu preciso para usar @lnp2pBot?</a></h1>
@@ -185,7 +209,7 @@
 <p>Você pode perguntar ao bot executando o comando <code>/findcomms</code> junto com o código da sua moeda.</p>
 <p>Por exemplo, isso mostra as comunidades em bolívares venezuelanos:</p>
 <p><code>/findcomms</code> ves</p>
-<p>Você também pode encontrar este e outros comandos clicando no botão &quot;Menu&quot;.</p>
+<p>Você também pode buscar ofertas filtradas por moedas e comunidades em <a href="https://market.lnp2pbot.com">https://market.lnp2pbot.com</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="preciso-preencher-algum-registro-de-usuário-ou-verificação-de-identidade"><a class="header" href="#preciso-preencher-algum-registro-de-usuário-ou-verificação-de-identidade">Preciso preencher algum registro de usuário ou verificação de identidade?</a></h1>
 <p>NÃO! O Bitcoin nasceu como <em>&quot;um sistema de dinheiro eletrônico pessoa a pessoa&quot;</em> e nos orgulhamos de apoiar esse princípio. Nenhum dos seus dados pessoais é exigido, as trocas são totalmente entre pares e <a href="https://t.me/lnp2pbot">@lnp2pBot</a> não coleta ou armazena nenhuma informação pessoal das partes envolvidas.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="que-tipo-de-informação-é-coletada-de-cada-usuário"><a class="header" href="#que-tipo-de-informação-é-coletada-de-cada-usuário">Que tipo de informação é coletada de cada usuário?</a></h1>
@@ -196,8 +220,12 @@
 <p>Cada comando é enviado como uma mensagem direta ao bot.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="como-funciona-o-sistema-de-reputação-do-usuário"><a class="header" href="#como-funciona-o-sistema-de-reputação-do-usuário">Como funciona o sistema de reputação do usuário?</a></h1>
 <p>A cada transação que você realizar, será solicitado que avalie sua contraparte, ao mesmo tempo em que ela avaliará você. Para isso, o <a href="https://t.me/lnp2pBot"><strong>lnp2pBot</strong></a> possui um sistema de classificação de 5 estrelas que permitirá que você avalie sua experiência, onde 1 estrela é a classificação mais baixa e 5 estrelas é a classificação mais alta.</p>
-<p>Quando você cria uma oferta, ela incluirá por padrão o número de transações bem-sucedidas que você realizou e as classificações recebidas de suas contrapartes.</p>
-<p><img src="./assets/images/reputation-system.jpg" alt="Reputation System" /></p>
+<p>Para obter a reputação, o bot realiza um cálculo iterativo da média e do desvio padrão das avaliações e das transações bem-sucedidas. Portanto, nas primeiras operações, mesmo que você tenha sido avaliado com a pontuação máxima, sua reputação não será alta, mas aumentará progressivamente à medida que você realizar operações com boas avaliações.</p>
+<p>Você pode ver esse cálculo em: <a href="https://github.com/lnp2pBot/bot/blob/main/bot/commands.js#L279">https://github.com/lnp2pBot/bot/blob/main/bot/commands.js#L279</a></p>
+<p>E ele é baseado em:
+<a href="https://math.stackexchange.com/questions/2148877/iterative-calculation-of-mean-and-standard-deviation">https://math.stackexchange.com/questions/2148877/iterative-calculation-of-mean-and-standard-deviation</a></p>
+<p>Quando você cria uma oferta, ela incluirá por padrão o número de transações bem-sucedidas que você realizou, as avaliações recebidas de suas contrapartes e o número de operações feitas. Recomendamos levar todos esses aspectos em consideração ao aceitar uma oferta para evitar golpes.</p>
+<p><img src="./assets/images/reputation-system.jpg" alt="Sistema de Reputação" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="como-eu-crio-uma-ordem-de-venda"><a class="header" href="#como-eu-crio-uma-ordem-de-venda">Como eu crio uma ordem de venda?</a></h1>
 <p>Ao conversar com <a href="https://t.me/lnp2pbot">@lnp2pBot</a>, você encontrará um botão de &quot;Menu&quot;. Clique nele para exibir a lista de comandos que você pode usar. Selecione o comando de venda: <code>/sell</code>, para ativar o assistente que irá guiá-lo pelo processo de venda.</p>
 <p><img src="./assets/images/sell-start.jpg" alt="Iniciar el asistente" /></p>
@@ -257,7 +285,7 @@
 <ul>
 <li>Ex. <code>/buy 0 50 ves &quot;banco xyz&quot;</code>: Compro cinquenta bolívares em sats - neste caso, o bot calculará a taxa de mercado - pago pelo banco xyz.</li>
 <li>Ex. <code>/buy 0 10-100 pen &quot;pagamento móvel&quot;</code>: Compro de 10 a 100 novos soles - neste caso, o vendedor escolherá qual valor vender dentro dessa faixa - pago por pagamento móvel.</li>
-<li>Ex. <code>/buy 0 100 eur -3 &quot;pagamento móvel&quot;</code>: Compro 100 euros com desconto de 3% - neste caso, o bot calculará a taxa de mercado descontando ou aumentando a porcentagem que você escolher - pago por pagamento móvel.</li>
+<li>Ex. <code>/buy 0 100 eur &quot;pagamento móvel&quot; -3</code>: Compro 100 euros com desconto de 3% - neste caso, o bot calculará a taxa de mercado descontando ou aumentando a porcentagem que você escolher - pago por pagamento móvel.</li>
 </ul>
 <p>Se houver alguma variável incompatível, o bot indicará durante o processo de criação da ordem. Após concluí-la, ela será publicada automaticamente no canal de troca e será visível por um período de 23 horas.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="como-eu-procuro-e-aceito-uma-oferta-de-compra-ou-venda"><a class="header" href="#como-eu-procuro-e-aceito-uma-oferta-de-compra-ou-venda">Como eu procuro e aceito uma oferta de compra ou venda?</a></h1>
@@ -271,17 +299,18 @@
 <p>A partir do bot, não há limites para o volume da sua transação. No entanto, dependendo da capacidade da rede e da liquidez do canal, em determinado momento você pode encontrar um limite máximo.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="quanto-tempo-leva-para-concluir-uma-transação"><a class="header" href="#quanto-tempo-leva-para-concluir-uma-transação">Quanto tempo leva para concluir uma transação?</a></h1>
 <p>Depende de vários fatores. Por ser uma troca P2P, a variável principal é a aceitação da sua oferta por uma contraparte. Sua publicação estará disponível por até 23 horas e, em seguida, será automaticamente removida se ninguém a aceitar.</p>
-<p>Uma vez aceita uma oferta, uma janela de tempo de 15 minutos é aberta para pagar a fatura lightning e para que o bot coloque ambas as partes em contato. A partir deste ponto, eles têm um máximo de duas horas para concluir a operação. Após esse tempo, a ordem expira e os sats são devolvidos à carteira de origem. Por esta razão, os usuários devem utilizar apenas meios de pagamento instantâneos em dinheiro fiat para suas operações.</p>
+<p>Uma vez aceita uma oferta, uma janela de tempo de 15 minutos é aberta para pagar a fatura lightning e para que o bot coloque ambas as partes em contato. A partir deste ponto, eles têm um máximo de 23 horas para concluir a operação. Após esse tempo, a ordem expira e os sats são devolvidos à carteira de origem. Por esta razão, os usuários devem utilizar apenas meios de pagamento instantâneos em dinheiro fiat para suas operações.</p>
 <p>Quando ambos os participantes estão online e concordam com métodos de pagamento imediatos, as transações são quase instantâneas.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="devo-pagar-taxas-e-comissões"><a class="header" href="#devo-pagar-taxas-e-comissões">Devo pagar taxas e comissões?</a></h1>
-<p>O bot cobra uma taxa fixa de 0,6%. Essa taxa inclui a taxa de rede, portanto, não há cobranças adicionais. Essa comissão é paga apenas pelo vendedor, não pelo comprador.</p>
+<p>O bot cobra uma taxa fixa de 0,6%. Esta taxa inclui a taxa de rede, portanto, não há cobranças adicionais. Essa comissão é paga apenas pelo vendedor, não pelo comprador.</p>
+<p>Algumas comunidades oferecem um pequeno desconto nas comissões das transações realizadas dentro delas. Para saber o desconto de cada comunidade, consulte <a href="https://market.lnp2pbot.com">https://market.lnp2pbot.com</a> na seção de COMUNIDADES.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="qual-taxa-de-câmbio-o-bot-utiliza"><a class="header" href="#qual-taxa-de-câmbio-o-bot-utiliza">Qual taxa de câmbio o bot utiliza?</a></h1>
 <p>Ao criar uma ordem, você pode optar por especificar apenas o valor em moeda fiduciária a ser &quot;pago/recebido&quot;, e não a quantidade de sats que deseja &quot;comprar/vender&quot;. Nesse caso, você deve selecionar o botão &quot;Preço de mercado&quot;, e o bot fará o cálculo com a taxa de mercado oferecida por <a href="https://yadio.io/">yadio.io</a>.</p>
 <p><img src="./assets/images/market-price.gif" alt="Precio de mercado" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="em-quais-países-e-idiomas-está-disponível"><a class="header" href="#em-quais-países-e-idiomas-está-disponível">Em quais países e idiomas está disponível?</a></h1>
 <p>Sendo uma troca P2P via Telegram, tecnicamente está disponível para qualquer pessoa que tenha este aplicativo. No entanto, até o momento o bot interage com uma lista de 58 moedas fiduciárias com as quais você pode criar ordens de <code>compra/venda</code> usando o botão <code>Preço de mercado</code> do assistente.</p>
 <p>Aqui está a lista:</p>
-<table><thead><tr><th>Code</th><th>Name</th><th></th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>Name</th><th></th></tr></thead><tbody>
 <tr><td>AED</td><td>Dirham dos Emirados Árabes U</td><td>🇦🇪</td></tr>
 <tr><td>ARS</td><td>Peso argentino</td><td>🇦🇷</td></tr>
 <tr><td>AUD</td><td>Dólar australiano</td><td>🇦🇺</td></tr>
@@ -341,6 +370,7 @@
 <tr><td>VND</td><td>Dong vietnamita</td><td>🇻🇳</td></tr>
 <tr><td>ZAR</td><td>Rand sul-africano</td><td>🇿🇦</td></tr>
 </tbody></table>
+</div>
 <p>Atualmente, o <a href="https://t.me/lnp2pbot"><strong>@lnp2pBot</strong></a> está totalmente disponível em inglês e espanhol. Há uma tradução parcial (e em andamento) para o português.</p>
 <p>Para mudar o idioma do assistente, use o comando <code>/setlang</code></p>
 <p>Se você quiser ajudar a traduzir o <strong>lnp2pBot</strong> para o seu idioma, pode propor sua colaboração. <a href="https://github.com/lnp2pBot/bot/blob/10af43b1199a163f8d8ec79e66546f4ad514ff46/CONTRIBUTING.md">Este é um bom lugar para começar.</a></p>
@@ -348,7 +378,14 @@
 <p>Ao executar o comando: <code>/findcomms</code> seguido do código da moeda desejada (você pode usar o código padrão de moedas ISO 4217), o <strong>lnp2pBot</strong> mostrará as comunidades criadas que operam com sua moeda. Também pode haver comunidades que operam sats contra qualquer outra criptomoeda. Não há nenhum tipo de limitação para o usuário.</p>
 <p>Na imagem a seguir, podemos ver o resultado de <code>/findcomms usd</code></p>
 <p><img src="./assets/images/findcomms.jpg" alt="Find Community Capture" /></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="como-compro-em-uma-determinada-comunidade"><a class="header" href="#como-compro-em-uma-determinada-comunidade">Como compro em uma determinada comunidade?</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="como-comprar-em-uma-comunidade-específica"><a class="header" href="#como-comprar-em-uma-comunidade-específica">Como comprar em uma comunidade específica?</a></h1>
+<p>Depois de executarmos o comando <code>/findcomms *&lt;código fiat&gt;*</code> para encontrar todas as comunidades que operam na moeda desejada</p>
+<p><img src="./assets/images/findcomms.jpg" alt="Find Community Capture" /></p>
+<p>Basta selecionar a comunidade em que você deseja participar e o bot mostrará a quantidade de pedidos bem-sucedidos e o volume de negociação operado nas últimas 24 horas naquela comunidade. Abaixo, você verá um botão que diz &quot;Usar por padrão&quot;; ao tocar nesse botão, você já estará participando.</p>
+<p><img src="./assets/images/comm-detail.jpg" alt="Community details Capture" /></p>
+<p>Para criar um pedido, use o comando <code>/buy</code> ou <code>/sell</code>, dependendo do que você deseja fazer. A partir daí, o robô fornecerá instruções passo a passo.</p>
+<p><img src="./assets/images/sell.jpg" alt="Community Wizard Capture" /></p>
+<p>Para sair da comunidade, use o comando <code>/setcomm off</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="carteiras-recomendadas"><a class="header" href="#carteiras-recomendadas">Carteiras recomendadas</a></h1>
 <p>As seguintes carteiras têm apresentado um melhor desempenho ao serem testadas com o bot:</p>
 <ul>
@@ -370,6 +407,10 @@
 <p>Se o @lnp2pBot lhe informar que o vendedor liberou, é porque realmente o fez, mas se você deseja verificar, pode fazer da seguinte forma:</p>
 <p>Envie uma mensagem para o bot <code>/listorders</code> e, se o bot ainda estiver no processo de pagamento do seu pedido, o status que você verá será <code>PAID_HOLD_INVOICE</code>. Se o bot já tiver pago a fatura, o pedido não aparecerá na lista.</p>
 <p>Quando um pedido tem o status <code>PAID_HOLD_INVOICE</code>, o vendedor não tem mais nenhuma responsabilidade, pois ele liberou os sats. Se você tiver problemas ao receber, vá para a seção <a href="./i-cant-receive.html">O vendedor liberou, mas não recebo os sats na minha carteira</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="o-vendedor-liberou-mas-os-sats-não-estão-chegando-à-minha-carteira"><a class="header" href="#o-vendedor-liberou-mas-os-sats-não-estão-chegando-à-minha-carteira">O vendedor liberou, mas os sats não estão chegando à minha carteira.</a></h1>
+<p>Às vezes, o bot não encontra rotas bem-sucedidas para fazer o pagamento por diferentes razões. Às vezes, é simplesmente porque não há uma boa conexão entre a origem e o destino, mas outras vezes é muito mais complicado. Pode acontecer que os nós conectados ao destino cobrem taxas muito altas. O nó @lnp2pBot está disposto a pagar até 0,15% do valor total da transação como taxa de roteamento. Se essa taxa for maior, o bot simplesmente não realizará o pagamento. Algumas carteiras que não são nativas do Lightning podem cobrar mais de 0,15% quando a mempool está congestionada, e o bot não poderá pagar a essas carteiras.</p>
+<p>Outro caso é quando você não tem <code>capacidade de entrada</code> (inbound capacity). Vou te dar um exemplo: se você usa a carteira Blixt e tem um canal recém-aberto nela, todo o dinheiro nessa carteira será para saída, ou seja, você não tem capacidade para receber. Nesse caso, todos os pagamentos para essa carteira irão falhar. Existem carteiras modernas, como a Phoenix wallet, que resolvem esse problema informando que você não possui capacidade de entrada e sugerindo que você abra um novo canal. Essa carteira cobra uma comissão por isso.</p>
+<p>Como solução, <a href="./recommended-wallets.html">recomendamos que você experimente diferentes carteiras</a>, gere novas faturas e as forneça ao bot para que ele tente enviar o pagamento novamente.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="suporte"><a class="header" href="#suporte">Suporte</a></h1>
 <p><a href="https://t.me/lnp2pbot">@lnp2pbot</a> não é uma empresa, portanto, não possui um departamento de suporte técnico, mas há uma comunidade para a qual você pode recorrer se precisar de ajuda. Lembre-se de que os participantes desta comunidade não recebem nenhuma remuneração. Por isso, se você não receber uma resposta imediata, seja paciente e educado, se alguém tiver a resposta, tentará ajudá-lo em algum momento.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="contato-com-desenvolvedores"><a class="header" href="#contato-com-desenvolvedores">Contato com desenvolvedores</a></h1>
@@ -439,6 +480,95 @@
 <p><img src="./assets/images/deldispute.png" alt="Eliminando una disputa Captura" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="expulsar-um-usuário-da-comunidade"><a class="header" href="#expulsar-um-usuário-da-comunidade">Expulsar um usuário da comunidade</a></h1>
 <p>Se um moderador considerar necessário, pode expulsar um usuário da comunidade com o comando <code>/ban</code> seguido pelo nome de usuário dele.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="trocas-seguras-no-lnp2pbot"><a class="header" href="#trocas-seguras-no-lnp2pbot">Trocas seguras no @lnp2pbot</a></h1>
+<p>O @lnp2pbot é uma ferramenta segura para a troca de Bitcoin de forma peer-to-peer (P2P) sem KYC (Know Your Customer - Conheça o Seu Cliente), porque quando duas pessoas entram em contato para fazer uma compra-venda, os Satoshis (Sats) do vendedor são retidos em sua própria carteira por meio de uma fatura de retenção (hold invoice) e não podem ser utilizados enquanto estiverem nesse estado. Quando o comprador de Satoshis envia o dinheiro fiat e o vendedor confirma para o bot que já o recebeu, os Satoshis são enviados para o nó do bot e este os pagará ao comprador o mais rápido possível.</p>
+<p>O bot possui um sistema de <a href="https://lnp2pbot.com/aprende/how-does-the-user-reputation-system-work.html">reputação dos usuários</a> que leva em consideração a quantidade de operações bem-sucedidas e as avaliações recebidas. Além disso, ele exibe a quantidade de dias que uma pessoa tem usado o bot. Esses dados podem ajudar você a tomar decisões sobre aceitar ou recusar ofertas de acordo com seus próprios interesses.</p>
+<p>Além disso, cada comunidade do bot possui pelo menos um Solucionador (Solver), que é responsável por mediar em disputas que possam surgir. Ele solicitará as evidências necessárias às partes envolvidas e determinará quem está correto e, portanto, receberá os Satoshis. Quando um golpista é detectado, ele é permanentemente banido e proibido de continuar usando o bot.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tentativas-de-golpes"><a class="header" href="#tentativas-de-golpes">Tentativas de golpes</a></h1>
+<p>Tentativas de golpes usando o bot não são frequentes, mas, como qualquer troca descentralizada peer-to-peer (P2P) sem KYC, não está isenta delas. Para evitar ser vítima de golpes, devemos agir com cautela, estar atentos a comportamentos suspeitos e, diante de qualquer dúvida, cancelar a operação ou abrir uma disputa.</p>
+<h2 id="possíveis-golpes"><a class="header" href="#possíveis-golpes">Possíveis golpes:</a></h2>
+<ul>
+<li>
+<p>Um golpista que deseja comprar Satoshis pode usar o comando <code>/fiatsent</code> para indicar que enviou o dinheiro fiat quando na realidade não o fez, fazendo com que o vendedor confie em sua palavra e libere os Satoshis sem verificar se realmente recebeu o dinheiro fiat. É muito importante que o vendedor verifique se recebeu o dinheiro fiat antes de acionar o comando <code>/release</code>, mesmo se o comprador enviar uma imagem como prova de pagamento, pois essa imagem poderia estar manipulada.</p>
+</li>
+<li>
+<p>Alguns métodos de pagamento fiat são reversíveis, como o PayPal, o que pode ser aproveitado por um golpista para comprar Satoshis e depois reverter o envio do dinheiro fiat. Recomendamos o uso apenas de métodos de pagamento irreversíveis para evitar esse tipo de golpe.</p>
+</li>
+<li>
+<p>Para promover o uso descentralizado do bot, existe a opção de qualquer usuário criar uma <a href="https://lnp2pbot.com/aprende/communities.html">comunidade</a>. Apesar dos excelentes resultados, há a possibilidade de que um golpista crie uma comunidade na qual ele seja o Solucionador e tome decisões em disputas fraudulentas, em cumplicidade com outros golpistas ou até mesmo fazendo parte das operações. No entanto, esse tipo de golpe teria curta duração, pois o golpista seria rapidamente descoberto, a reputação da comunidade seria afetada, juntamente com a perda de usuários e a proibição dos golpistas. É aconselhável antes de usar uma comunidade, informar-se sobre quem é o criador e os Solucionadores, se eles têm grupos em comum com você e se têm boa reputação em geral. Além disso, leve em consideração o volume de negociação do grupo, sua antiguidade, quantos usuários possui e verifique se eles são reais e não bots.</p>
+</li>
+<li>
+<p>Um vendedor golpista pode aproveitar o fato de que as faturas retidas no @lnp2pbot têm um prazo de validade de aproximadamente 23 horas e não acionar o comando /release para liberar os Satoshis, apesar de ter recebido o dinheiro fiat do comprador. Em vez disso, ele deixa o tempo passar com desculpas ou até mesmo pode se desconectar, com o objetivo de que a fatura expire e os Satoshis sejam devolvidos a ele, além de ficar com o dinheiro fiat, sem que o bot ou algum Solucionador possa fazer algo a respeito. Para evitar essa situação, é importante que, se você estiver comprando Satoshis, utilize um método de pagamento instantâneo e que, uma vez pago sua parte, não espere muito tempo para cobrar o vendedor. Se ele não liberar os Satoshis e não responder em algumas horas, você deve abrir uma disputa. Nunca espere até que o prazo da disputa esteja próximo de expirar, pois é possível que o Solucionador não consiga resolvê-la antes que ela expire e os Satoshis sejam devolvidos ao vendedor.</p>
+</li>
+<li>
+<p>Outra forma de atuação de alguns golpistas é realizar várias operações dentro do bot para estabelecer relações com outros usuários e, em seguida, contatá-los em particular para convencê-los a realizar operações fora do bot. Isso é arriscado porque nada garante que eles cumprirão com sua parte. Recomendamos não realizar trocas fora do bot, mesmo que as ofertas pareçam tentadoras. Você pode pedir que, para maior segurança de ambas as partes, as trocas sejam realizadas usando <a href="https://t.me/lnp2pBot">@lnp2pbot</a>.</p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dicas-para-evitar-golpes"><a class="header" href="#dicas-para-evitar-golpes">Dicas para evitar golpes</a></h1>
+<ul>
+<li>
+<p>Se você estiver usando <a href="https://t.me/lnp2pBot">@lnp2pbot</a> pela primeira vez, informe-se sobre como ele funciona, revise a documentação disponível e comece com pequenas quantias até dominar completamente o processo.</p>
+</li>
+<li>
+<p>Antes de aceitar uma oferta, verifique a reputação do usuário, o número de trocas, o tempo de uso do bot, bem como o volume de negociação, se estiver visível. Desconfie de ofertas muito boas, especialmente se vierem de usuários com pouco tempo de uso do bot e ao mesmo tempo com muitas transações.</p>
+</li>
+<li>
+<p>Não concorde em realizar trocas fora do bot.</p>
+</li>
+<li>
+<p>Não concorde em alterar o método de pagamento fiat se não foi o que estava na oferta.</p>
+</li>
+<li>
+<p>Se você não se sentir confortável com uma troca, pode pedir à outra parte para fazer uma cancelação cooperativa, desde que o dinheiro fiat não tenha sido enviado.</p>
+</li>
+<li>
+<p>Tenha cuidado com as novas comunidades e aquelas de baixo volume.</p>
+</li>
+<li>
+<p>Não concorde em fazer uma troca em outra comunidade se não foi você quem a escolheu.</p>
+</li>
+<li>
+<p>Se você planeja abrir uma disputa, faça isso a tempo, muito antes das 23 horas desde o início da oferta.</p>
+</li>
+<li>
+<p>Se você detectar comportamentos suspeitos, informe os administradores da comunidade correspondente. Eles poderão tomar as medidas adequadas para proteger os usuários e alertar os administradores de outras comunidades.</p>
+</li>
+<li>
+<p>Envie à outra parte apenas os dados pessoais essenciais para a realização da troca; não forneça mais informações do que o necessário, como seu número de telefone pessoal, endereço, etc.</p>
+</li>
+<li>
+<p>Se alguém com quem você fez transações anteriores enviar dinheiro fiat sem aviso prévio (mesmo que alegue que foi um erro) e exigir que você envie os Satoshis correspondentes, pode se tratar de um golpe de ponte. Nesse caso, é aconselhável devolver o dinheiro fiat e não prosseguir com a troca forçada que estão tentando impor a você.</p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="golpes-de-triangulação-de-contas-ou-golpes-de-ponte"><a class="header" href="#golpes-de-triangulação-de-contas-ou-golpes-de-ponte">Golpes de triangulação de contas ou golpes de ponte</a></h1>
+<p>Esse tipo de golpe é difícil de prevenir e detectar, já que, do ponto de vista do vendedor, tudo parece estar ocorrendo normalmente. É importante notar que isso pode acontecer em qualquer tipo de troca peer-to-peer (P2P), não apenas no <a href="https://t.me/lnp2pBot">@lnp2pbot</a>. Esses golpes consistem em um golpista atuando como intermediário entre a vítima e o vendedor, onde a vítima envia o dinheiro fiat, mas o golpista recebe os Satoshis.</p>
+<p>O golpista oferece a venda de produtos ou serviços (como um item usado ou até mesmo o desbloqueio de iPhones) em qualquer rede social ou plataforma especializada em compra e venda. Quando a vítima entra em contato, o golpista solicita um pagamento antecipado. Simultaneamente, o golpista cria uma oferta de compra de Satoshis no <a href="https://t.me/lnp2pBot">@lnp2pbot</a> (ou em outra plataforma de troca P2P) por uma quantia equivalente ao dinheiro fiat que planeja enganar (ou até mesmo oferece um prêmio alto para torná-lo mais atrativo). Quando o golpista encontra um vendedor de Satoshis e pede seus dados para realizar a transferência do dinheiro fiat, ele fornece esses dados à vítima para receber o pagamento antecipado mencionado anteriormente. Assim que o dinheiro fiat da vítima chega ao vendedor de Satoshis, este aciona o comando <code>/release</code>, liberando os Bitcoins para o golpista, que desaparece e nunca presta o serviço ou entrega o produto prometido à vítima.</p>
+<p>É importante enfatizar que o vendedor de Satoshis também é uma vítima nessa triangulação, pois ele interage apenas com o golpista, sem saber da existência de uma terceira pessoa na troca, e presume que o dinheiro fiat que recebeu veio diretamente do comprador de seus Satoshis. No entanto, ele pode ser acusado de golpe quando seus dados bancários são entregues às autoridades em uma denúncia por pagamento de um serviço ou produto não recebido. É aconselhável não apagar o histórico do bot ou as conversas com os compradores de Satoshis, ou fazer cópias de backup, pois esses registros podem ser necessários como prova caso seja necessário demonstrar que ninguém foi enganado.</p>
+<p>Alguns golpistas podem até mesmo solicitar informações pessoais adicionais aos vendedores para compartilhá-las posteriormente com as vítimas diretas das triangulações, a fim de ganhar mais confiança. Portanto, é recomendável não fornecer informações pessoais, como números de telefone, nomes completos ou endereços, a menos que sejam essenciais para o método de pagamento utilizado.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="prevenção-de-golpes-de-ponte"><a class="header" href="#prevenção-de-golpes-de-ponte">Prevenção de golpes de ponte</a></h1>
+<p>Não existe um método totalmente eficaz para evitar que um vendedor se envolva em um golpe de ponte. No entanto, além de seguir as dicas mencionadas anteriormente para prevenir golpes, existem outras medidas que você, como vendedor, pode tomar para reduzir o risco, incluindo:</p>
+<ul>
+<li>
+<p>Se você deseja fazer uma venda grande de Satoshis, é preferível dividi-la em várias vendas menores, a menos que o comprador tenha um bom histórico de transações com você e sempre utilize a mesma conta bancária.</p>
+</li>
+<li>
+<p>Se uma oferta de compra parece ser muito boa para ser verdade, tenha cuidado, pois pode ser um golpe.</p>
+</li>
+<li>
+<p>Em métodos de pagamento fiat que permitem adicionar comentários ao envio, você pode pedir ao comprador que escreva uma frase específica que você forneça naquele momento, como &quot;Estou comprando uma laranja&quot;. Dessa forma, se ele for um golpista, teria que pedir à vítima que escrevesse esse comentário para enviar o dinheiro fiat, o que poderia levantar suspeitas de que se trata de um golpe, já que é muito provável que a compra não envolva uma laranja.</p>
+</li>
+</ul>
+<p>Essa frase pode ser substituída por um código numérico ou outra mensagem que você considere apropriada para evitar golpes. Outra abordagem, menos recomendada devido a preocupações com privacidade, seria pedir que a frase fosse: &quot;Este pagamento é para a compra de X Satoshis no @lnp2pbot com o ID do pedido: Y&quot;.</p>
+<ul>
+<li>
+<p>Alguns métodos de pagamento fiat não permitem adicionar comentários, mas revelam os números de telefone de ambas as partes. Nessas situações, você também pode solicitar ao comprador, antes de liberar os Satoshis, que envie uma mensagem SMS de um número que corresponda ao número fornecido para o pagamento fiat, contendo uma das mensagens mencionadas anteriormente ou mensagens semelhantes. Outra opção poderia ser fazer ou receber uma chamada telefônica e falar diretamente para confirmar que não há terceiros envolvidos no pagamento fiat.</p>
+</li>
+<li>
+<p>Outra opção, não muito recomendada se você não quiser violar a privacidade do comprador, é solicitar uma videochamada no Telegram em que ele mostre que possui o cartão de onde o dinheiro foi enviado, embora não seja necessário mostrar o rosto para isso.</p>
+</li>
+</ul>
+<p>Lembre-se de que, se você não se sentir confortável com uma transação, pode realizar um cancelamento cooperativo com <code>/cancel</code> e devolver o dinheiro fiat para a mesma conta de onde foi enviado. Se a outra parte não quiser colaborar, você deve abrir uma disputa com <code>/dispute</code> e aguardar que um solucionador resolva o caso.</p>
+<p>As medidas preventivas mencionadas aqui podem não ser aplicáveis a todos os métodos de pagamento fiat. Se você conhecer outras medidas, por favor, compartilhe-as e contribua para evitar golpes.</p>
 
                     </main>
 
@@ -460,26 +590,27 @@
 
 
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
 
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
 
-        <script type="text/javascript">
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
 
+    </div>
     </body>
 </html>
