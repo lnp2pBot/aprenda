@@ -1,6 +1,6 @@
 # Documentação em Português
 
-[Site com a Documentação em Português](https://mostro.network/protocol/)
+[Site com a Documentação em Português](https://lnp2pbot.com/aprenda/)
 
 ## Para contribuidores
 
