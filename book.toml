@@ -1,0 +1,6 @@
+[book]
+authors = ["Francisco Calderón"]
+language = "pt"
+multilingual = false
+src = "src"
+title = "Aprenda @lnp2pBot"
